@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <center>
+    <div class="box">
+    <h1>OTP GENERATOR</h1>
+    <input id="otp" type="text" readonly>
+
+    <input type="text" id="user-otp" placeholder="enter otp">
+    <button id="verify-otp" >verify otp</button>
+    <div id="result"></div>
+</div>
+</center>
+    <script>
+        
+        let otp = generateOtp();
+document.getElementById("otp").value = otp;
+
+        
+function generateOtp() {
+
+
+    document.getElementById("verify-otp").addEventListener("click",() => {
+        const userotp = document.getElementById("user-otp").value;
+        if (userotp===otp.toString()){
+            document.getElementById("result").innerHTML = "OTP IS VERIFIED"
+        } else {
+            document.getElementById("result").innerHTML = "WRONG OTP"
+        }
+    })
+    setInterval(() => {
+  otp = generateOtp();
+  document.getElementById("otp").value = otp;
+}, 5000);
+document
+  return Math.floor(100000 + Math.random() * 900000);
+}
+  </script>
+</body>
+</html>
